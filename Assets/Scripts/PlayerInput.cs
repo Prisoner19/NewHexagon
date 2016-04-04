@@ -20,22 +20,22 @@ public class PlayerInput : MonoBehaviour
 		//if (Controller.Instance.player_inventory.Check_Ammo ())
 		if (true)
 		{
-			if (Input.GetKeyDown (KeyCode.A))
+			if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
 			{
 				Rotate_Left ();
 				Controller.Instance.player_inventory.Decrease_Ammo ();
 			} 
-			else if (Input.GetKeyDown (KeyCode.W))
+			else if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
 			{
 				Rotate_Up ();
 				Controller.Instance.player_inventory.Decrease_Ammo ();
 			} 
-			else if (Input.GetKeyDown (KeyCode.S))
+			else if (Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
 			{
 				Rotate_Down ();
 				Controller.Instance.player_inventory.Decrease_Ammo ();
 			} 
-			else if (Input.GetKeyDown (KeyCode.D))
+			else if (Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
 			{
 				Rotate_Right ();
 				Controller.Instance.player_inventory.Decrease_Ammo ();

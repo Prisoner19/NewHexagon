@@ -41,22 +41,24 @@ public class PatternSpawner : MonoBehaviour {
 
 		last_pattern = rand_pattern;
 
-		StartCoroutine (Start_Pattern_Spawning (rand_pattern + ""));
+		StartCoroutine (Start_Pattern_Spawning (1 + ""));
 	}
 
 	private IEnumerator Start_Pattern_Spawning(string patternID)
 	{
+        yield return new WaitForSeconds (1f);
+        
 		for (int i = 0; i < jsonData [patternID].Count; i++)
 		{
 			yield return new WaitForSeconds (jsonData[patternID][i][_WAIT_TIME].AsFloat / Controller.Instance.speedFactor);
 
 			Spawn_Object (jsonData [patternID] [i] [_TYPE].Value, jsonData [patternID] [i] [_DIR].Value, jsonData [patternID] [i] [_SPEED].AsFloat);
 		}
-
-		yield return new WaitForSeconds (0.5f);
-
-		Controller.Instance.sprRnd_bg.color = new Color (Random.Range (0, 1f), Random.Range (0, 1f), Random.Range (0, 1.0f));
-
+        
+        yield return new WaitForSeconds (1f);
+        
+		Controller.Instance.sprRnd_bg.sprite = Resources.Load<Sprite>("Sprites/bg" + Random.Range (1, 4));
+        
 		Spawn_New_Pattern ();
 	}
 
