@@ -46,7 +46,7 @@ public class PatternSpawner : MonoBehaviour {
 
 	private IEnumerator Start_Pattern_Spawning(string patternID)
 	{
-        yield return new WaitForSeconds (1f);
+        yield return new WaitForSeconds (0.75f);
         
 		for (int i = 0; i < jsonData [patternID].Count; i++)
 		{
@@ -55,7 +55,7 @@ public class PatternSpawner : MonoBehaviour {
 			Spawn_Object (jsonData [patternID] [i] [_TYPE].Value, jsonData [patternID] [i] [_DIR].Value, jsonData [patternID] [i] [_SPEED].AsFloat);
 		}
         
-        yield return new WaitForSeconds (1f);
+        yield return new WaitForSeconds (0.75f);
         
 		Controller.Instance.sprRnd_bg.sprite = Resources.Load<Sprite>("Sprites/bg" + Random.Range (1, 4));
         
