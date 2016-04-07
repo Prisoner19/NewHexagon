@@ -23,29 +23,25 @@ public class PlayerInput : MonoBehaviour
 			if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
 			{
 				Rotate_Left ();
-				Controller.Instance.player_inventory.Decrease_Ammo ();
 			} 
 			else if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
 			{
 				Rotate_Up ();
-				Controller.Instance.player_inventory.Decrease_Ammo ();
 			} 
 			else if (Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
 			{
 				Rotate_Down ();
-				Controller.Instance.player_inventory.Decrease_Ammo ();
 			} 
 			else if (Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
 			{
 				Rotate_Right ();
-				Controller.Instance.player_inventory.Decrease_Ammo ();
 			}
 		}
 	}
 
 	private void Rotate_Left()
 	{
-		LeanTween.rotateZ (Controller.Instance.playerTransf.gameObject, 90, 0.05f).setEase (LeanTweenType.easeInCubic).setOnComplete (Shoot_Left);
+		LeanTween.rotateZ (Controller.Game.Instance.playerTransf.gameObject, 90, 0.05f).setEase (LeanTweenType.easeInCubic).setOnComplete (Shoot_Left);
 	}
 
 	private void Shoot_Left()
@@ -61,7 +57,7 @@ public class PlayerInput : MonoBehaviour
 
 	private void Rotate_Up()
 	{
-		LeanTween.rotateZ (Controller.Instance.playerTransf.gameObject, 0, 0.05f).setEase (LeanTweenType.easeInCubic).setOnComplete (Shoot_Up);
+		LeanTween.rotateZ (Controller.Game.Instance.playerTransf.gameObject, 0, 0.05f).setEase (LeanTweenType.easeInCubic).setOnComplete (Shoot_Up);
 	}
 
 	private void Shoot_Up()
@@ -77,7 +73,7 @@ public class PlayerInput : MonoBehaviour
 
 	private void Rotate_Down()
 	{
-		LeanTween.rotateZ (Controller.Instance.playerTransf.gameObject, 180, 0.05f).setEase (LeanTweenType.easeInCubic).setOnComplete (Shoot_Down);
+		LeanTween.rotateZ (Controller.Game.Instance.playerTransf.gameObject, 180, 0.05f).setEase (LeanTweenType.easeInCubic).setOnComplete (Shoot_Down);
 	}
 
 	private void Shoot_Down()
@@ -93,7 +89,7 @@ public class PlayerInput : MonoBehaviour
 
 	private void Rotate_Right()
 	{
-		LeanTween.rotateZ (Controller.Instance.playerTransf.gameObject, 270, 0.05f).setEase (LeanTweenType.easeInCubic).setOnComplete (Shoot_Right);
+		LeanTween.rotateZ (Controller.Game.Instance.playerTransf.gameObject, 270, 0.05f).setEase (LeanTweenType.easeInCubic).setOnComplete (Shoot_Right);
 	}
 
 	private void Shoot_Right()

@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace  Enums
 {
-    public enum Object_Color
+    public enum Color
     {
         Red,
         Blue,
