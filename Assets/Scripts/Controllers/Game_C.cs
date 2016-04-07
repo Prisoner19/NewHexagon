@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace Controller
 {
-    public class Game : MonoBehaviour 
+    public class Game_C : MonoBehaviour 
     {
-        private static Game instance;
+        private static Game_C instance;
 
         public SpriteRenderer sprRnd_bg;
 
+        public Player.Model obj_player;
         public Transform playerTransf;
         
         public PatternSpawner pattern_spawner;
@@ -38,9 +38,14 @@ namespace Controller
             }
         }
 
-        public static Game Instance 
+        public static Game_C Instance 
         {
             get { return instance; }
+        }
+        
+        public Player.Model Get_Player_Object()
+        {
+            return obj_player;
         }
     }
 }

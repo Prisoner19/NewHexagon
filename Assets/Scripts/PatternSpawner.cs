@@ -50,14 +50,14 @@ public class PatternSpawner : MonoBehaviour {
         
 		for (int i = 0; i < jsonData [patternID].Count; i++)
 		{
-			yield return new WaitForSeconds (jsonData[patternID][i][_WAIT_TIME].AsFloat / Controller.Game.Instance.speedFactor);
+			yield return new WaitForSeconds (jsonData[patternID][i][_WAIT_TIME].AsFloat / Controller.Game_C.Instance.speedFactor);
 
 			Spawn_Object (jsonData [patternID] [i] [_TYPE].Value, jsonData [patternID] [i] [_DIR].Value, jsonData [patternID] [i] [_SPEED].AsFloat);
 		}
         
         yield return new WaitForSeconds (0.75f);
         
-		Controller.Game.Instance.sprRnd_bg.sprite = Resources.Load<Sprite>("Sprites/bg" + Random.Range (1, 4));
+		Controller.Game_C.Instance.sprRnd_bg.sprite = Resources.Load<Sprite>("Sprites/spr_bg_blue");
         
 		Spawn_New_Pattern ();
 	}

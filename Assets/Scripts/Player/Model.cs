@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Controller;
+using Enums;
 
 namespace Player
 {
@@ -7,6 +8,8 @@ namespace Player
     {
         private Shooting obj_shooting;
         private Rendering obj_rendering;
+        
+        private Direction facing_direction;
         
         // Use this for references
         void Awake()
@@ -26,9 +29,9 @@ namespace Player
         
         }
         
-        public void Shoot()
+        public void Shoot(Direction dir)
         {
-            
+            obj_shooting.Shoot(dir);
         }
         
         private void Get_Component_References()

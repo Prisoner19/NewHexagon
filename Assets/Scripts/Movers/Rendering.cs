@@ -1,8 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using Enums;
-using System;
-
 namespace Mover
 {
     public class Rendering : MonoBehaviour 
@@ -14,21 +10,9 @@ namespace Mover
         // Use this for references
         void Awake()
         {
-               sprRnd = gameObject.GetComponent<SpriteRenderer>();
-        }
-
-        // Use this for initialization
-        void Start () 
-        {
-
+            sprRnd = gameObject.GetComponent<SpriteRenderer>();
         }
         
-        // Update is called once per frame
-        void Update () 
-        {
-        
-        }
-
         internal void Set_Model(Model m)
         {
             obj_model = m;

@@ -9,4 +9,12 @@ namespace  Enums
         Blue,
         Yellow
     }
+    
+    public enum Direction
+    {
+        Left, 
+        Up,
+        Right,
+        Down
+    }
 }
