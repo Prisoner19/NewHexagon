@@ -26,14 +26,15 @@ namespace Controller
 
         void Update () 
         {
-            if (timeCounter < 1) 
-            {
-                timeCounter += Time.deltaTime * 0.5f;
-            } 
-            else 
-            {
-                speedFactor = 1;
-            }
+            speedFactor += Time.deltaTime * 0.05f;
+            // if (timeCounter < 1) 
+            // {
+            //     timeCounter += Time.deltaTime * 0.5f;
+            // } 
+            // else 
+            // {
+            //     speedFactor = 1;
+            // }
         }
 
         public static Game_C Instance 
