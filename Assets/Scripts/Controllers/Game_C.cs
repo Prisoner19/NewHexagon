@@ -6,8 +6,6 @@ namespace Controller
     {
         private static Game_C instance;
 
-        public SpriteRenderer sprRnd_bg;
-
         public Player.Model obj_player;
         public Transform playerTransf;
         

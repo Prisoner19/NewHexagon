@@ -1,13 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
-
-namespace  Enums
+﻿namespace  Enums
 {
     public enum Color
     {
-        Red,
-        Blue,
-        Yellow
+        Red = 1,
+        Blue = 2,
+        Yellow = 3
     }
     
     public enum Direction
@@ -15,6 +12,13 @@ namespace  Enums
         Left, 
         Up,
         Right,
-        Down
+        Down,
+        None
+    }
+    
+    public enum MoverType
+    {
+        Enemy,
+        Friend
     }
 }

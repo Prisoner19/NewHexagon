@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using SimpleJSON;
+using Controller;
 
 public class PatternSpawner : MonoBehaviour {
 
 	public TextAsset jsonFile;
-	public GameObject pfb_enemy;
-	public GameObject pfb_ammo;
+	public GameObject pfb_mover;
 
 	private JSONNode jsonData;
 
@@ -48,51 +48,23 @@ public class PatternSpawner : MonoBehaviour {
 	{
         yield return new WaitForSeconds (0.75f);
         
+        Background_C.Instance.Change_Color();
+        
 		for (int i = 0; i < jsonData [patternID].Count; i++)
 		{
-			yield return new WaitForSeconds (jsonData[patternID][i][_WAIT_TIME].AsFloat / Controller.Game_C.Instance.speedFactor);
+			yield return new WaitForSeconds (jsonData[patternID][i][_WAIT_TIME].AsFloat / Game_C.Instance.speedFactor);
 
-			Spawn_Object (jsonData [patternID] [i] [_TYPE].Value, jsonData [patternID] [i] [_DIR].Value, jsonData [patternID] [i] [_SPEED].AsFloat);
+			Spawn_Mover (jsonData [patternID] [i] [_TYPE].Value, jsonData [patternID] [i] [_DIR].Value, jsonData [patternID] [i] [_SPEED].AsFloat);
 		}
         
         yield return new WaitForSeconds (0.75f);
         
-		Controller.Game_C.Instance.sprRnd_bg.sprite = Resources.Load<Sprite>("Sprites/spr_bg_blue");
-        
 		Spawn_New_Pattern ();
 	}
 
-	private void Spawn_Object(string type, string dir, float speed)
+	private void Spawn_Mover(string type, string dir, float speed)
 	{
-		GameObject go_object = null;
-
-		if(type == "ammo")
-		{
-			go_object = GameObject.Instantiate (pfb_ammo);
-		}
-		else if(type == "enemy")
-		{
-			go_object = GameObject.Instantiate (pfb_enemy);
-		}
-
-		switch (dir)
-		{
-		    case "left": go_object.transform.position =  new Vector3 (-36, 0);
-			break;
-
-		    case "up": go_object.transform.position =  new Vector3 (0, 36);
-			break;
-
-		    case "right": go_object.transform.position =  new Vector3 (36, 0);
-			break;
-
-		    case "down": go_object.transform.position =  new Vector3 (0, -36);
-			break;
-		}
-
-		if (go_object != null)
-		{
-			go_object.GetComponent<Mover.Movement> ().Speed = speed;
-		}
+        GameObject go_object = GameObject.Instantiate (pfb_mover);
+        go_object.GetComponent<Mover.Model>().Initialize(Helper.String_To_MoverType(type), dir, speed);
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Enums;
 
 namespace Mover
 {
@@ -25,14 +26,19 @@ namespace Mover
         {
             Move ();
         }
-
+        
         void FixedUpdate()
         {
             bool isColliding = Check_For_Collision ();
 
             if (isColliding) 
             {
-                CameraShake.Instance.Big_Shake ();
+                if(obj_model.Ask_For_MoverType() == MoverType.Enemy)
+                {
+                    CameraShake.Instance.Big_Shake ();
+                }
+                
+                obj_model.Get_Killed();
             }
         }
 
@@ -58,16 +64,27 @@ namespace Mover
 
             return false;
         }
-
-        public float Speed 
-        {
-            get { return speed; }
-            set { speed = value; }
-        }
         
         internal void Set_Model(Model m)
         {
             obj_model = m;
+        }
+        
+        internal void Set_Initial_Position(Enums.Direction dir)
+        {
+            switch (dir)
+            {
+                case Enums.Direction.Left:  transform.SetPositionXY(-36,0); break;
+                case Enums.Direction.Up:    transform.SetPositionXY(0,36); break;
+                case Enums.Direction.Right: transform.SetPositionXY(36,0); break;
+                case Enums.Direction.Down:  transform.SetPositionXY(0,-36); break;
+                default: break;
+            }
+        }
+        
+        internal void Set_Speed(float speed)
+        {
+            this.speed = speed;
         }
     }
 }
