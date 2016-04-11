@@ -53,4 +53,16 @@ public static class Helper
         
         return (Enums.Color)System.Enum.GetValues(typeof(Enums.Direction)).GetValue(rand_value);
     }
+    
+    public static Vector2 Get_Movement_Direction_From(Direction origin)
+    {
+        switch (origin)
+        {
+            case Direction.Left: return Vector2.right;
+            case Direction.Up: return Vector2.down;
+            case Direction.Right: return Vector2.left;
+            case Direction.Down: return Vector2.up;
+            default: return Vector2.zero;
+        }
+    }
 }

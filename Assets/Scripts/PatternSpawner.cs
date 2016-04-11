@@ -46,7 +46,7 @@ public class PatternSpawner : MonoBehaviour {
 
 	private IEnumerator Start_Pattern_Spawning(string patternID)
 	{
-        yield return new WaitForSeconds (1f);
+        yield return new WaitForSeconds (0.5f);
         
         Background_C.Instance.Change_Color();
         
@@ -57,7 +57,7 @@ public class PatternSpawner : MonoBehaviour {
 			Spawn_Mover (jsonData [patternID] [i] [_TYPE].Value, jsonData [patternID] [i] [_DIR].Value, jsonData [patternID] [i] [_SPEED].AsFloat);
 		}
         
-        yield return new WaitForSeconds (1f);
+        yield return new WaitForSeconds (0.5f);
         
 		Spawn_New_Pattern ();
 	}
