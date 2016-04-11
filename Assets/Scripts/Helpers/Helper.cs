@@ -31,6 +31,30 @@ public static class Helper
         return MoverType.Enemy;
     }
     
+    public static float Direction_To_Angles(Direction dir)
+    {
+        switch (dir)
+        {
+            case Direction.Left: return 90;
+            case Direction.Up: return 0;
+            case Direction.Right: return 270;
+            case Direction.Down: return 180;
+            default: return 0;
+        }
+    }
+    
+    public static Vector2 Direction_To_Vector2(Direction dir)
+    {
+        switch (dir)
+        {
+            case Direction.Left: return Vector2.left;
+            case Direction.Up: return Vector2.up;
+            case Direction.Right: return Vector2.right;
+            case Direction.Down: return Vector2.down;
+            default: return Vector2.zero;
+        }
+    }
+    
     public static Enums.Color Get_Color_Different_From(Enums.Color color)
     {
         Enums.Color new_color;

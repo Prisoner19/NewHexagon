@@ -4,7 +4,17 @@ namespace Controller
 {
     public class Event_C : MonoBehaviour 
     {
-    //   sblic static event Lives_Change On_Lives_Changed;
+        private static Event_C instance;
+        
+        void Awake()
+        {
+            instance = this;
+        }
+        
+        public static Event_C Instance
+        {
+            get { return instance; }
+        }
     }
 
 }

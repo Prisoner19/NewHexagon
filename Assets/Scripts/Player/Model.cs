@@ -34,7 +34,7 @@ namespace Player
         
         public void Shoot(Direction dir)
         {
-            obj_shooting.Shoot(dir);
+            obj_shooting.Start_To_Shoot(dir);
         }
         
         public void Decrease_Score()
@@ -50,6 +50,11 @@ namespace Player
         public int Ask_For_Score()
         {
             return score;
+        }
+        
+        public void Change_Facing_Direction(Direction dir)
+        {
+            facing_direction = dir;
         }
         
         private void Get_Component_References()
