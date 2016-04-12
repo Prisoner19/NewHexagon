@@ -26,7 +26,7 @@ namespace Controller
 
         void Update () 
         {
-            if(speedFactor < 1.5f)
+            if(speedFactor < 1.25f)
             {
                 speedFactor += Time.deltaTime * 0.05f;
             }

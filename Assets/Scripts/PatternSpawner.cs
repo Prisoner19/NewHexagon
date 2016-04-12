@@ -33,20 +33,20 @@ public class PatternSpawner : MonoBehaviour {
 	{
 		int rand_pattern;
 
-		do
-		{
-			rand_pattern = Random.Range (1, 4);
-		} 
-		while(rand_pattern == last_pattern);
+		// do
+		// {
+		// 	rand_pattern = Random.Range (1, 4);
+		// } 
+		// while(rand_pattern == last_pattern);
 
-		last_pattern = rand_pattern;
+		// last_pattern = rand_pattern;
 
 		StartCoroutine (Start_Pattern_Spawning (1 + ""));
 	}
 
 	private IEnumerator Start_Pattern_Spawning(string patternID)
 	{
-        yield return new WaitForSeconds (0.5f);
+        yield return new WaitForSeconds (1f);
         
         Background_C.Instance.Change_Color();
         
@@ -57,7 +57,7 @@ public class PatternSpawner : MonoBehaviour {
 			Spawn_Mover (jsonData [patternID] [i] [_TYPE].Value, jsonData [patternID] [i] [_DIR].Value, jsonData [patternID] [i] [_SPEED].AsFloat);
 		}
         
-        yield return new WaitForSeconds (0.5f);
+        yield return new WaitForSeconds (1f);
         
 		Spawn_New_Pattern ();
 	}
