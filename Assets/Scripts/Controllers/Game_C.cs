@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 namespace Controller
 {
@@ -21,9 +22,16 @@ namespace Controller
 
         void Start()
         {
-            pattern_spawner.Spawn_New_Pattern ();
+            GUI_C.Instance.Hide_Indication();
+            StartCoroutine(Wait_For_Spawning());
         }
-
+        
+        private IEnumerator Wait_For_Spawning()
+        { 
+            yield return new WaitForSeconds(2);
+            pattern_spawner.Spawn_New_Pattern();
+        }
+        
         void Update () 
         {
             if(speedFactor < 1.25f)

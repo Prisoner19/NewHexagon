@@ -10,12 +10,16 @@ namespace Controller
         private GameObject go_score_tens;
         private GameObject go_score_units;
         
+        private GameObject go_indication;
+        
         void Awake()
         {
             instance = this;
             
             go_score_tens = null;
             go_score_units = null;
+            
+            go_indication = null;
         }
         
         // Update is called once per frame
@@ -37,6 +41,13 @@ namespace Controller
             
             go_score_tens.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Score/spr_" + score_tens);
             go_score_units.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Score/spr_" + score_units);
+        }
+        
+        public void Hide_Indication()
+        {
+            go_indication = GameObject.Find("Indication");
+            
+            LeanTween.alpha(go_indication, 0, 2);
         }
        
         public static GUI_C Instance 
