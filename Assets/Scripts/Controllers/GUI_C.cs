@@ -7,11 +7,15 @@ namespace Controller
     {
         private static GUI_C instance;
         
-        private GameObject go_score;
+        private GameObject go_score_tens;
+        private GameObject go_score_units;
         
         void Awake()
         {
             instance = this;
+            
+            go_score_tens = null;
+            go_score_units = null;
         }
         
         // Update is called once per frame
@@ -22,13 +26,17 @@ namespace Controller
         
         public void Set_Score()
         {
-            go_score = GameObject.Find("Score");
-            
-            if(go_score != null)
+            if(go_score_tens == null || go_score_units == null)
             {
-                int score = Game_C.Instance.Get_Player_Object().Ask_For_Score();
-                go_score.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Score/spr_" + score);
+                go_score_tens = GameObject.Find("Tens");
+                go_score_units = GameObject.Find("Units");
             }
+            
+            int score_tens = Game_C.Instance.Get_Player_Object().Ask_For_Score() / 10;
+            int score_units = Game_C.Instance.Get_Player_Object().Ask_For_Score() % 10;
+            
+            go_score_tens.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Score/spr_" + score_tens);
+            go_score_units.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Score/spr_" + score_units);
         }
        
         public static GUI_C Instance 

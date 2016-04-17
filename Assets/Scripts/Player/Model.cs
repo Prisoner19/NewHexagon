@@ -44,7 +44,7 @@ namespace Player
         
         public void Increase_Score()
         {
-            score = (score < 9) ? score + 1 : 9;
+            score = score + 1;
         }
         
         public int Ask_For_Score()
