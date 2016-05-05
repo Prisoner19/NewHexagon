@@ -11,6 +11,7 @@ namespace Mover
         
         private Enums.Color enum_color;
         private Enums.MoverType enum_type;
+        private Enums.Direction enum_dir;
         
         void Awake()
         {
@@ -46,8 +47,10 @@ namespace Mover
             enum_color = mover_color;
             
             obj_rendering.Change_Color(mover_color);
+            
+            enum_dir = Helper.String_To_Direction(dir);            
             obj_movement.Set_Speed(speed);
-            obj_movement.Set_Initial_Position(Helper.String_To_Direction(dir));
+            obj_movement.Set_Initial_Position(enum_dir);
         }
         
         public void Change_Color(Enums.Color color)
@@ -69,6 +72,11 @@ namespace Mover
         public Enums.MoverType Ask_For_MoverType()
         {
             return enum_type;
+        }
+        
+        public Enums.Direction Ask_For_Direction()
+        {
+            return enum_dir;
         }
         
         public bool Check_Color(Enums.Color color)

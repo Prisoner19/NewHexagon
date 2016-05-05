@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Player
 {
@@ -11,18 +12,39 @@ namespace Player
         {
 
         }
+        
+        void Update()
+        {
+            Check_Collision_With_Movers();
+        }
 
         internal void Set_Model(Model m)
         {
             obj_model = m;
         }
         
-        private void OnCollisionEnter2D(Collision2D other)
+        private void Check_Collision_With_Movers()
         {
-            Mover.Model obj_mover = other.gameObject.GetComponent<Mover.Model>();
+            GameObject[] array_movers = GameObject.FindGameObjectsWithTag("Mover");
+            
+            foreach(GameObject go in array_movers)
+            {
+                float difX = Mathf.Abs(go.GetPositionX() - transform.position.x);
+                float difY = Mathf.Abs(go.GetPositionY() - transform.position.y);
+                
+                if(difX < 5 && difY < 5)
+                {
+                    Destroy_Mover(go);
+                }
+            }
+        }
+        
+        private void Destroy_Mover(GameObject go_mover)
+        {
+            Mover.Model obj_mover = go_mover.GetComponent<Mover.Model>();
             Enums.MoverType type;
-             
-            if(obj_model != null)
+            
+            if(obj_mover != null)
             {
                type = obj_mover.Ask_For_MoverType();
                

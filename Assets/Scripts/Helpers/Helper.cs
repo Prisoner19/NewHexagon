@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Enums;
 
 public static class Helper

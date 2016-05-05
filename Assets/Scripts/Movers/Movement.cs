@@ -8,23 +8,29 @@ namespace Mover
         private Model obj_model;
         
         private float speed;
-        private Rigidbody2D comp_rb2d;
         private Vector2 v2_dir;
+        
+        private Vector3 v3_logic_position;
 
-        void Awake()
+        void Start()
         {
-            comp_rb2d = GetComponent<Rigidbody2D>();
+            v3_logic_position = transform.position;
         }
         
         // Update is called once per frame
         void Update () 
         {
-            Update_Speed();
+            Move();
         }
         
-        private void Update_Speed()
+        private void Move()
         {
-            comp_rb2d.velocity = v2_dir * speed * Controller.Game_C.Instance.speedFactor;
+            v3_logic_position =  v3_logic_position + (Vector3)v2_dir * speed * Time.deltaTime * Controller.Game_C.Instance.speedFactor;
+            
+            float posX = Mathf.RoundToInt(v3_logic_position.x) + 0.5f;
+            float posY = Mathf.RoundToInt(v3_logic_position.y) + 0.5f;
+            
+            transform.SetPositionXY(posX, posY);
         }
         
         internal void Set_Model(Model m)

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: dc5a1fc7ab4011f44a776623ccbc7bad
-timeCreated: 1460866706
+timeCreated: 1460959211
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,7 @@ TextureImporter:
     21300006: Shoot_3
     21300008: Shoot_4
     21300010: Shoot_5
+    21300012: gun
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -62,7 +63,7 @@ TextureImporter:
         x: 22
         y: 70
         width: 5
-        height: 6
+        height: 5
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,6 +121,17 @@ TextureImporter:
         height: 50
       alignment: 7
       pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: gun
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 75
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     outline: []

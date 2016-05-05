@@ -23,6 +23,7 @@ namespace Controller
         // Use this for initialization
         void Start () 
         {
+            enum_color = Enums.Color.Red;
             Load_Sprites();
         }
         
