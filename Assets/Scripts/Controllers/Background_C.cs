@@ -73,9 +73,9 @@ namespace Controller
         
         private void Load_Sprites()
         {
-            spr_bg_red = Resources.Load<Sprite>("Sprites/spr_bg_red");
-            spr_bg_yellow = Resources.Load<Sprite>("Sprites/spr_bg_yellow");
-            spr_bg_blue = Resources.Load<Sprite>("Sprites/spr_bg_blue");
+            spr_bg_red = Resources.Load<Sprite>("Sprites/Environment/spr_bg_red");
+            spr_bg_yellow = Resources.Load<Sprite>("Sprites/Environment/spr_bg_yellow");
+            spr_bg_blue = Resources.Load<Sprite>("Sprites/Environment/spr_bg_blue");
         }
         
         public static Background_C Instance

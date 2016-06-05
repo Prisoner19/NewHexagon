@@ -19,15 +19,13 @@ namespace Controller
             if(type == Enums.MoverType.Friend)
             {
                 CameraShake.Instance.Big_Shake();
-                obj_player.Decrease_Score();
+                // obj_player.Decrease_Score();
             }
             else
             {
                 CameraShake.Instance.Small_Shake();
-                obj_player.Increase_Score();
+                // obj_player.Increase_Score();
             }
-            
-            Controller.GUI_C.Instance.Set_Score();
         }
         
         public static Event_C Instance

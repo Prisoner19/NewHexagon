@@ -34,12 +34,12 @@ namespace Player
                 
                 if(difX < 5 && difY < 5)
                 {
-                    Destroy_Mover(go);
+                    Collide_With_Mover(go);
                 }
             }
         }
         
-        private void Destroy_Mover(GameObject go_mover)
+        private void Collide_With_Mover(GameObject go_mover)
         {
             Mover.Model obj_mover = go_mover.GetComponent<Mover.Model>();
             Enums.MoverType type;
@@ -52,7 +52,10 @@ namespace Player
                {
                    CameraShake.Instance.Big_Shake();
                }
-               
+               else
+               {
+                   
+               }
                obj_mover.Get_Killed();
             }
         }

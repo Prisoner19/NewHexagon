@@ -69,12 +69,12 @@ public static class Helper
     
     public static Enums.Color Get_Random_Color()
     {
-        int rand_value = 0;
-        int enum_count = System.Enum.GetNames(typeof(Enums.Direction)).Length;
+        int rand_value = 1;
+        int enum_count = System.Enum.GetNames(typeof(Enums.Color)).Length;
         
         rand_value = Random.Range(0, enum_count);
         
-        return (Enums.Color)System.Enum.GetValues(typeof(Enums.Direction)).GetValue(rand_value);
+        return (Enums.Color)System.Enum.GetValues(typeof(Enums.Color)).GetValue(rand_value);
     }
     
     public static Vector2 Get_Movement_Direction_From(Direction origin)

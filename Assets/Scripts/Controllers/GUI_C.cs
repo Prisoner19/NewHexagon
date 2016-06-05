@@ -7,8 +7,8 @@ namespace Controller
     {
         private static GUI_C instance;
         
-        private GameObject go_score_tens;
-        private GameObject go_score_units;
+        private GameObject go_timer_tens;
+        private GameObject go_timer_units;
         
         private GameObject go_indication;
         
@@ -16,8 +16,8 @@ namespace Controller
         {
             instance = this;
             
-            go_score_tens = null;
-            go_score_units = null;
+            go_timer_tens = null;
+            go_timer_units = null;
             
             go_indication = null;
         }
@@ -25,22 +25,24 @@ namespace Controller
         // Update is called once per frame
         void Update () 
         {
-        
+            Update_Timer();
         }
         
-        public void Set_Score()
+        public void Update_Timer()
         {
-            if(go_score_tens == null || go_score_units == null)
+            if(go_timer_tens == null || go_timer_units == null)
             {
-                go_score_tens = GameObject.Find("Tens");
-                go_score_units = GameObject.Find("Units");
+                go_timer_tens = GameObject.Find("Tens");
+                go_timer_units = GameObject.Find("Units");
             }
             
-            int score_tens = Game_C.Instance.Get_Player_Object().Ask_For_Score() / 10;
-            int score_units = Game_C.Instance.Get_Player_Object().Ask_For_Score() % 10;
+            int timer_tens = Mathf.FloorToInt(Game_C.Instance.timer / 10);
+            int timer_units = Mathf.FloorToInt(Game_C.Instance.timer % 10);
             
-            go_score_tens.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Score/spr_" + score_tens);
-            go_score_units.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Score/spr_" + score_units);
+            go_timer_tens.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Timer/spr_" + timer_tens);
+            go_timer_units.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Timer/spr_" + timer_units);
+
+            Debug.Log(timer_tens + "" + timer_units);
         }
         
         public void Hide_Indication()

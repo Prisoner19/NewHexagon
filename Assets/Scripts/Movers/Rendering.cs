@@ -22,9 +22,9 @@ namespace Mover
         {
             switch (color)
             {
-                case Enums.Color.Blue: sprRnd.sprite = Resources.Load<Sprite>("Sprites/spr_mover_blue"); break;
-                case Enums.Color.Yellow: sprRnd.sprite = Resources.Load<Sprite>("Sprites/spr_mover_yellow"); break;
-                case Enums.Color.Red: sprRnd.sprite = Resources.Load<Sprite>("Sprites/spr_mover_red"); break;
+                case Enums.Color.Blue: sprRnd.sprite = Resources.Load<Sprite>("Sprites/Movers/spr_mover_blue"); break;
+                case Enums.Color.Yellow: sprRnd.sprite = Resources.Load<Sprite>("Sprites/Movers/spr_mover_yellow"); break;
+                case Enums.Color.Red: sprRnd.sprite = Resources.Load<Sprite>("Sprites/Movers/spr_mover_red"); break;
                 default: break;
             }
         }

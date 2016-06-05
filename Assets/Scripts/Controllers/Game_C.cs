@@ -13,7 +13,7 @@ namespace Controller
         public PatternSpawner pattern_spawner;
 
         public float speedFactor = 0.3f;
-        private float timeCounter = 0;
+        public float timer;
 
         void Awake()
         {
@@ -38,6 +38,17 @@ namespace Controller
             {
                 speedFactor += Time.deltaTime * 0.05f;
             }
+
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+            else
+            {
+                timer = 0;
+            }
+
+            Debug.Log(timer);
         }
 
         public static Game_C Instance 

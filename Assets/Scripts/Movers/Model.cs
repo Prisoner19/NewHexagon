@@ -9,8 +9,8 @@ namespace Mover
         private Movement obj_movement;
         private Rendering obj_rendering;
         
-        private Enums.Color enum_color;
-        private Enums.MoverType enum_type;
+        public Enums.Color enum_color;
+        public Enums.MoverType enum_type;
         private Enums.Direction enum_dir;
         
         void Awake()
@@ -41,10 +41,10 @@ namespace Mover
         public void Initialize(Enums.MoverType type, string dir, float speed)
         {   
             enum_type = type;
-            
             Enums.Color bg_color = Background_C.Instance.Ask_For_Color();
             Enums.Color mover_color = (type == MoverType.Enemy) ? bg_color : Helper.Get_Color_Different_From(bg_color);
             enum_color = mover_color;
+            Debug.Log(enum_type + " / " + enum_color);
             
             obj_rendering.Change_Color(mover_color);
             

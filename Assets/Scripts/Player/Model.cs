@@ -23,7 +23,7 @@ namespace Player
         void Start () 
         {
             score = 0;
-            Controller.GUI_C.Instance.Set_Score();
+            // Controller.GUI_C.Instance.Set_Score();
         }
         
         // Update is called once per frame
